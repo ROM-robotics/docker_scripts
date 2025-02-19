@@ -1,0 +1,9 @@
+#!/bin/bash
+gsettings set org.gnome.desktop.remote-desktop.rdp screen-share-mode extend
+
+
+# Settings > Sharing and turn on Sharing. 
+# device name : mi
+# addr : ms-rd://mi.local
+# user : mr_robot
+# pass : ghostman

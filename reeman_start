@@ -1,0 +1,18 @@
+#/usr/bin/bash
+xhost +local:root
+docker run -it --network='bridge' \
+-p 80:80 \
+--env='DISPLAY' \
+--env='QT_X11_NO_MITSHM=1' \
+--env='XDG_RUNTIME_DIR=/run/user/${UID}' \
+--volume='/tmp/.X11-unix:/tmp/.X11-unix:rw' \
+--volume='/home/mr_robot/Desktop/reeman_waiter_robot_hacked/catkin_ws:/home/reeman/catkin_ws' \
+--volume='/home/mr_robot/Desktop/reeman_waiter_robot_hacked/reeman_ws:/home/reeman/reeman_ws' \
+--volume='/home/mr_robot/Desktop/reeman_waiter_robot_hacked/data:/home/reeman/data' \
+--volume='/home/mr_robot/Desktop/reeman_waiter_robot_hacked/html:/home/reeman/html' \
+--volume='/home/mr_robot/Desktop/reeman_waiter_robot_hacked/frp:/home/reeman/frp' \
+--volume='/home/mr_robot/Desktop/reeman_waiter_robot_hacked/rom_ws:/home/reeman/rom_ws' \
+--name reeman_container \
+romrobotics/reeman:20 bash   
+docker stop reeman_container
+docker rm reeman_container
